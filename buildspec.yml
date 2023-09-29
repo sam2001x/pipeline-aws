@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      docker: 19 # Specify the Docker version you want
+    commands:
+      - echo "Installing Docker"
+      - sudo apt-get update -y
+      - sudo apt-get install -y docker.io
+      - sudo usermod -aG docker $USER
+      - sudo systemctl start docker
+      - sudo systemctl enable docker
+      - echo "Docker installation complete"
+  build:
+    commands:
+      - echo "Nothing to build here"
+artifacts:
+  files:
+    - appspec.yml
+
