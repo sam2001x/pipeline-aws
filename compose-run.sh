@@ -1,5 +1,7 @@
-#!/bin/bash
 
-cd /home/ubuntu
 
-sudo docker-compose up 
+#!/bin/sh
+cd /home/mubin/devopspipeline
+
+docker-compose build
+docker-compose up -d
