@@ -3,14 +3,31 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing Docker"
-      - sudo apt-get update -y
-      - sudo apt-get install -y docker.io
-      - echo "Docker installation complete"
+      - echo "the installation phase begins"
+  pre_build:
+    commands:
+      - echo "the prebuild phase begins"
+      - cd client
+      - npm install
   build:
     commands:
-      - echo "Nothing to build here"
+      - echo "the build phase begins"
+      # - echo `pwd`
+      - npm run build
+      # - echo `ls -la`
+
+  post_build:
+    commands:
+      - echo "the post build phase. navigating back to root path"
+      - cp -R build/ ../
+
 artifacts:
   files:
+    - build/**/*
     - appspec.yml
+    # - server/**/*
+    # - nginx/*
+    - scripts/*
+    - docker-compose.yaml
+    - Dockerfile
 
