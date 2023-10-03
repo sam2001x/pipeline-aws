@@ -7,7 +7,6 @@ phases:
   pre_build:
     commands:
       - echo "the prebuild phase begins"
-      - cd client
       - npm install
   build:
     commands:
