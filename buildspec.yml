@@ -18,7 +18,7 @@ phases:
   post_build:
     commands:
       - echo "the post build phase. navigating back to root path"
-      - cp -R build/ ../
+      - cp  build/ ../
 
 artifacts:
   files:
@@ -26,7 +26,7 @@ artifacts:
     - appspec.yml
     # - server/**/*
     # - nginx/*
-    - scripts/*
+    # - scripts/*
     - docker-compose.yaml
     - Dockerfile
 
